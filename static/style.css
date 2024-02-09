@@ -1,10 +1,42 @@
+html, body {
+    font-family: 'Nunito', sans-serif;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start; /* Adjusted to align content to start instead of center vertically */
+    height: 100vh;
+    width: 100%;
+}
+
+#navbar {
+    background-color: slategray;
+    width: 100%;
+    padding: 1.2em 0;
+    text-align: left; /* Aligns navbar content to the left */
+}
+
+#navbar a{
+    color: aliceblue;
+    font-weight: bold;
+    padding: 1.2em;
+}
+
+#navbar a:hover{
+    background-color: azure;
+    color: black;
+    font-weight: bold;
+    padding: 1.2em;
+}
+
 #board {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* Creates 5 columns */
-    grid-template-rows: repeat(1, 1fr); /* Creates 5 rows */
-    gap: 0px; /* Adjust the gap as needed */
-    max-width: 250px; /* Adjust the max width as needed */
-    margin: auto; /* Center the board */
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    gap: 0px;
+    max-width: 250px;
+    margin: auto;
 }
 
 .cell {
@@ -20,6 +52,34 @@
     align-items: center;
 }
 
+#game-container, #game-over-popup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.board-layout {
+    display: flex; /* Use flexbox to layout children side by side */
+    justify-content: space-between; /* Add space between the children if needed, or use 'flex-start' to align them to the start */
+    align-items: start; /* Align children to the start of the cross axis */
+    flex-wrap: nowrap; /* Prevents the items from wrapping */
+    width: 100%; /* Ensure the board layout takes the full width */
+    max-width: 1200px; /* Adjust this value based on the maximum width you prefer */
+    margin: auto; /* Centers the board layout in the middle of the page */
+}
+
+#side-container-left, #side-container-right {
+    flex: 1; /* This will allow both containers to grow and fill the parent equally */
+    padding: 10px; /* Optional: Add some padding inside the containers */
+    /* You may need to set explicit widths or max-widths if the content is too wide */
+}
+/* Additional styles for your board and game elements */
+#game-container, #score-container {
+    display: block; /* Ensure these are displayed */
+}
+
+
 #game-over-popup {
     position: fixed;
     left: 50%;
@@ -29,5 +89,53 @@
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-    z-index: 1000; /* Ensure it's above other content */
+    z-index: 1000;
+}
+
+button {
+    margin: 20px auto; /* Centered horizontally with automatic margins */
+    height: 40px;
+    width: 150px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 16px;
+    border: none;
+    background-color: lightgray;
+    transition: background-color 0.3s;
+    display: block; /* Makes the button a block element to respect margin: auto */
+}
+
+form{
+    padding: 30px;
+}
+
+
+button:hover {
+    cursor: pointer;
+    background-color: rgb(15, 80, 145);
+    color: white;
+}
+
+p, h1 {
+    text-align: center;
+}
+
+#how-to-info {
+    max-width: 80%;
+}
+
+h1{
+    font-size: 60px;
+}
+
+#how-to{
+    font-weight: bold;
+    justify-self: center;
+    font-size: larger;
+}
+
+#how-to-info{
+    margin-left: 8em;
+    margin-right: 8em;
+    justify-self: center;
+    
 }

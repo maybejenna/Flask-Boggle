@@ -9,7 +9,8 @@ $(document).ready(function() {
 
     $('#start-game').on('click', function() {
         $(this).hide(); // Hide the start button
-        $('#game-container').show(); // Show the game elements
+        $('#game-container').show();// Show the game elements
+        $('#score-container').show(); // Show the game elements
         initializeGame(); // Function to start the game
     });
 
@@ -82,6 +83,13 @@ $(document).ready(function() {
     $('#cancel').on('click', function() {
         $('#game-over-popup').hide(); // Hide the popup
     });
+
+    $('input[name="guess"]').on('input', function() {
+        var currentGuess = $(this).val().toUpperCase();
+        highlightLetters(currentGuess);
+    });
+
+
 });
 
 function updateFoundWordsList(words) {

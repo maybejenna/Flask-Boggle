@@ -9,25 +9,35 @@
     <p id="how-to-info">To gain points, players create words from a random assortment of letters in a 5x5 grid. We will be providing the functionality to generate the grid.
         Words can be created from adjacent letters which are horizontal or vertical neighbors of each other as well as diagonals. The letters must connect to each other in the proper sequence to spell the word correctly. This means that the next letter in the word can be above, below, left, or right of the previous letter in the word (excluding any letters previously used to construct the word).</p>
     <button id="start-game">Start Game</button>
-    <div id="game-container" style="display: none;">
-        <div id="board">
-            {% for row in board %}
-                <div class="row">
-                    {% for letter in row %}
-                        <div class="cell">{{ letter }}</div>
+    <div class="board-layout">
+        <div id="side-container-left">
+            <div id="game-container" style="display: none;">
+                <div id="board">
+                    {% for row in board %}
+                        <div class="row">
+                            {% for letter in row %}
+                                <div class="cell">{{ letter }}</div>
+                            {% endfor %}
+                        </div>
                     {% endfor %}
                 </div>
-            {% endfor %}
+            <form action="/guess" method="post">
+                <input type="text" name="guess" autocomplete="off" required>
+                <button type="submit">Submit</button>
+            </form>
+    
+        </div>
+
+        <div id="side-container-right">
+            <div id="score-container" style="display: none;">
+                <p id="score">Score: 0</p>
+                <p id="result"></p>
+                <p id="time"></p>
+                <p>Found Words: <span id="found-words"></span></p>
+            </div>
         </div>
     </div>
-    <form action="/guess" method="post">
-        <input type="text" name="guess" autocomplete="off" required>
-        <button type="submit">Submit</button>
-    </form>
-    <p id="score">Score: 0</p>
-    <p id="result"></p>
-    <p id="time"></p>
-    <p>Found Words: <span id="found-words"></span></p>
+   
 
     <div id="game-over-popup" style="display: none;">
         <p>Time's up! Your score is <span id="final-score"></span>.</p>
