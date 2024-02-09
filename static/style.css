@@ -1,0 +1,33 @@
+#board {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* Creates 5 columns */
+    grid-template-rows: repeat(1, 1fr); /* Creates 5 rows */
+    gap: 0px; /* Adjust the gap as needed */
+    max-width: 250px; /* Adjust the max width as needed */
+    margin: auto; /* Center the board */
+}
+
+.cell {
+    width: 50px; /* Adjust the cell size as needed */
+    height: 50px; /* Adjust the cell size as needed */
+    border: 1px solid #000;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 50px; /* Should match the cell height */
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#game-over-popup {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 1000; /* Ensure it's above other content */
+}

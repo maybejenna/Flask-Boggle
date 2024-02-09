@@ -1,0 +1,12 @@
+{% extends 'base.html'%}
+
+{% block title %}Guess Result{% endblock%}
+
+{% block content %}
+<body>
+    <h1>Result</h1>
+    <p>Your guess: <strong>{{ guess }}</strong></p>
+    <p>Result: <strong>{{ result }}</strong></p>
+    <a href="/">Try again</a>
+</body>
+{% endblock%}
