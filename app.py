@@ -12,6 +12,10 @@ def home():
     session['board'] = board  # Store the board in the session
     return render_template("board.html", board=board)
 
+@app.route("/how_to_play")
+def how_to_play():
+    return render_template("how_to_play.html")
+
 @app.route("/guess", methods=["POST"])
 def handle_guess():
     try:
